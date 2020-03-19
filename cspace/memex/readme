@@ -1,0 +1,8 @@
+counter : 计数程序，作为目标进程
+gcc -o counter counter.c
+./counter
+
+attach : 监控程序
+gcc -o attach attach.c 
+ps aux | grep counter 
+./attach %pid%

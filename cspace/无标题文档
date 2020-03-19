@@ -1,0 +1,21 @@
+#include<stdio.h>
+
+int (*g_fun)(int,int);
+
+int RegFun(int (*pFun)(int,int)){
+	g_fun = pFun;
+	return 0;
+}
+
+int max(int x, int y)
+{
+	if(x > y) return x;
+	return y;	
+}
+
+int main()
+{
+	RegFun(max);
+	int x = g_fun(1,2);
+	printf("%d\n",x);
+}
